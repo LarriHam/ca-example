@@ -12,17 +12,24 @@
                 {{-- <a href="{{ route('publishers.create') }}">Create</a> --}}
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    
+                    <p><b>Name:</b> {{ $publishers->name }}</p>
+                    <p><b>Description:</b> {{ $publishers->description }}</p>
+                    <p><b>Email:</b> {{ $publishers->email }}</p>
+                    <p><b>Phone:</b> {{ $publishers->phone }}</p>
+                    
+                    
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
-                                    Name
+                                    Title
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Email
+                                    Description
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Phone
+                                    ISBN
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Action
@@ -31,23 +38,23 @@
                         </thead>
                         <tbody>
 
-                            @forelse($publishers as $publisher)
+                            @forelse($publishers->books as $book)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $publisher->name }}
+                                    {{ $book->title }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $publisher->email }}
+                                    {{ $book->description }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $publisher->phone }}
+                                    {{ $book->isbn }}
                                 </td>
                                  <td class="px-6 py-4">
-                                    <a href="{{ route('publishers.show', $publisher->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <a href="{{ route('books.show', $publishers->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                 </td> 
                             </tr>
                             @empty
-                                <h4>No Publishers found!</h4>
+                                <h4>No Books found!</h4>
                             @endforelse
                         </tbody>
                     </table>

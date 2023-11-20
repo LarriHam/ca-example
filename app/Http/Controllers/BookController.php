@@ -1,21 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Publisher;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
-class PublisherController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $publishers = Publisher::all();
+        $books = Book::all();
 
-        return view('publishers.index', [
-            'publishers' => $publishers 
+        return view('books.index', [
+            'books' => $books
         ]);
     }
 
@@ -40,11 +40,12 @@ class PublisherController extends Controller
      */
     public function show(string $id)
     {
-        $publishers = Publisher::findOrFail($id);
+        $book = Book::findOrFail($id);
 
-        return view('publishers.show', [
-            'publishers' => $publishers
+        return view('books.show', [
+            'book' => $book
         ]);
+        
     }
 
     /**
