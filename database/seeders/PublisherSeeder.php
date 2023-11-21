@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Publisher;
 
+
 class PublisherSeeder extends Seeder
 {
     /**
@@ -14,6 +15,8 @@ class PublisherSeeder extends Seeder
     public function run(): void
     {
         Publisher::factory()->times(5)->hasBooks(20)->create();
+
+
         // $pub1 = new Publisher;
         // $pub1->name = "Sample publisher 1";
         // $pub1->description = "Sample description";

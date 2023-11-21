@@ -15,6 +15,7 @@ class BookSeeder extends Seeder
     public function run(): void
     {
         Book::factory()->times(50)->create();
+        
         // $publisher = Publisher::where('name', 'Sample publisher 2')->first();
 
         // $book = new Book;
